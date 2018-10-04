@@ -8,22 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		870C3D8A2166D3BE0012BC20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3D892166D3BE0012BC20 /* AppDelegate.swift */; };
-		870C3D8C2166D3BE0012BC20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3D8B2166D3BE0012BC20 /* ViewController.swift */; };
 		870C3D8F2166D3BE0012BC20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870C3D8D2166D3BE0012BC20 /* Main.storyboard */; };
 		870C3D922166D3BE0012BC20 /* DevMtn_StripHiLo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 870C3D902166D3BE0012BC20 /* DevMtn_StripHiLo.xcdatamodeld */; };
 		870C3D942166D3BF0012BC20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 870C3D932166D3BF0012BC20 /* Assets.xcassets */; };
 		870C3D972166D3BF0012BC20 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870C3D952166D3BF0012BC20 /* LaunchScreen.storyboard */; };
+		870C3DA32166D6CB0012BC20 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3DA22166D6CB0012BC20 /* Card.swift */; };
+		870C3DA52166D6EF0012BC20 /* StickFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3DA42166D6EF0012BC20 /* StickFigure.swift */; };
+		870C3DA72166D70D0012BC20 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3DA62166D70D0012BC20 /* CardController.swift */; };
+		870C3DA92166D72B0012BC20 /* GamePlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3DA82166D72B0012BC20 /* GamePlayController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		870C3D862166D3BE0012BC20 /* DevMtn-StripHiLo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DevMtn-StripHiLo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		870C3D892166D3BE0012BC20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		870C3D8B2166D3BE0012BC20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		870C3D8E2166D3BE0012BC20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		870C3D912166D3BE0012BC20 /* DevMtn_StripHiLo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DevMtn_StripHiLo.xcdatamodel; sourceTree = "<group>"; };
 		870C3D932166D3BF0012BC20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		870C3D962166D3BF0012BC20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		870C3D982166D3BF0012BC20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		870C3DA22166D6CB0012BC20 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		870C3DA42166D6EF0012BC20 /* StickFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickFigure.swift; sourceTree = "<group>"; };
+		870C3DA62166D70D0012BC20 /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
+		870C3DA82166D72B0012BC20 /* GamePlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,50 @@
 		870C3D882166D3BE0012BC20 /* DevMtn-StripHiLo */ = {
 			isa = PBXGroup;
 			children = (
+				870C3D9F2166D69C0012BC20 /* Model */,
+				870C3DA02166D69F0012BC20 /* Model Controller */,
+				870C3DA12166D6A50012BC20 /* View Controller */,
+				870C3D9E2166D6940012BC20 /* Resources */,
+			);
+			path = "DevMtn-StripHiLo";
+			sourceTree = "<group>";
+		};
+		870C3D9E2166D6940012BC20 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				870C3D892166D3BE0012BC20 /* AppDelegate.swift */,
-				870C3D8B2166D3BE0012BC20 /* ViewController.swift */,
 				870C3D8D2166D3BE0012BC20 /* Main.storyboard */,
 				870C3D932166D3BF0012BC20 /* Assets.xcassets */,
 				870C3D952166D3BF0012BC20 /* LaunchScreen.storyboard */,
 				870C3D982166D3BF0012BC20 /* Info.plist */,
 				870C3D902166D3BE0012BC20 /* DevMtn_StripHiLo.xcdatamodeld */,
 			);
-			path = "DevMtn-StripHiLo";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		870C3D9F2166D69C0012BC20 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				870C3DA22166D6CB0012BC20 /* Card.swift */,
+				870C3DA42166D6EF0012BC20 /* StickFigure.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		870C3DA02166D69F0012BC20 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				870C3DA62166D70D0012BC20 /* CardController.swift */,
+				870C3DA82166D72B0012BC20 /* GamePlayController.swift */,
+			);
+			path = "Model Controller";
+			sourceTree = "<group>";
+		};
+		870C3DA12166D6A50012BC20 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				870C3DA72166D70D0012BC20 /* CardController.swift in Sources */,
+				870C3DA52166D6EF0012BC20 /* StickFigure.swift in Sources */,
 				870C3D922166D3BE0012BC20 /* DevMtn_StripHiLo.xcdatamodeld in Sources */,
-				870C3D8C2166D3BE0012BC20 /* ViewController.swift in Sources */,
+				870C3DA92166D72B0012BC20 /* GamePlayController.swift in Sources */,
+				870C3DA32166D6CB0012BC20 /* Card.swift in Sources */,
 				870C3D8A2166D3BE0012BC20 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,7 +332,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74SYWHWN72;
-				INFOPLIST_FILE = "DevMtn-StripHiLo/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/DevMtn-StripHiLo/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74SYWHWN72;
-				INFOPLIST_FILE = "DevMtn-StripHiLo/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/DevMtn-StripHiLo/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
