@@ -1,5 +1,5 @@
 //
-//  GamePlayController.swift
+//  GamePlayViewController.swift
 //  DevMtn-StripHiLo
 //
 //  Created by John Tate on 10/4/18.
@@ -8,10 +8,14 @@
 
 import UIKit
 
-class GamePlayController {
+class GamePlayViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+    }
     
-    static let shared = GamePlayController()
-    private init() {}
+    // MARK: - Properties
     
     var round: Int = 0
     var playerScore: Int = 0
@@ -23,16 +27,18 @@ class GamePlayController {
     var secondCardSuit: String = ""
     var secondCardValue: String = ""
     
-    func startGame() {
-        // display some sort of message that the game has started
+    // MARK: - GamePlay Methods
+    
+    func startNewGame() {
+        presentStartGameMessage()
         round = 1
         playerScore = 0
         endGameFlag = false
-        startRound()
+        startNewRound()
     }
     
-    func startRound() {
-        // display some sort of message that the round has started
+    func startNewRound() {
+        // TODO: display some sort of message that the round has started
         round += 1
         playerScore += 1
         // start with index 0 of indices 0-4 as game progresses and player guesses incorrectly
@@ -51,12 +57,13 @@ class GamePlayController {
             self.secondCardValue = secondCard.value
             
             // fetch card images
-            
-            
+            // display the first; only display the second once the player chooses higher or lower
         }
     }
     
     func compareCards() {
+        
+        
         
         
         // pass in values of card 1 and card 2
@@ -76,8 +83,28 @@ class GamePlayController {
     
     func endGame() {
         endGameFlag = true
-        // display some sort of message that the game has ended
-        // option to start a new game?
+        presentEndGameMessage()
+    }
+    
+    func presentStartGameMessage() {
+        let alertController = UIAlertController(title: "New Game", message: "Guess whether the second card is higher than or lower than the first card.  Each time you are wrong, the stick man removes another piece of clothing.  Once he is naked, you lose.", preferredStyle: .alert)
+        let dismissAction = UIAlertAction(title: "Okay!", style: .cancel, handler: nil)
+        alertController.addAction(dismissAction)
+        
+        // need to put this in a UIViewController
+        present(alertController, animated: true)
+    }
+    
+    func presentEndGameMessage() {
+        let alertController = UIAlertController(title: "Game Over", message: "Your sitck man has no clothes left to take off. ☹️" , preferredStyle: .alert)
+        let startNewGameAction = UIAlertAction(title: "Start New Game", style: .default) { (_) in
+            self.startNewGame()
+        }
+        let dismissAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alertController.addAction(startNewGameAction)
+        alertController.addAction(dismissAction)
+        
+        // need to put this in a UIViewController
+        present(alertController, animated: true)
     }
 }
-

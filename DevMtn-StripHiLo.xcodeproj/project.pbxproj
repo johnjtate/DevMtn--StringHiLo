@@ -15,7 +15,7 @@
 		870C3DA32166D6CB0012BC20 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3DA22166D6CB0012BC20 /* Card.swift */; };
 		870C3DA52166D6EF0012BC20 /* StickFigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3DA42166D6EF0012BC20 /* StickFigure.swift */; };
 		870C3DA72166D70D0012BC20 /* CardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3DA62166D70D0012BC20 /* CardController.swift */; };
-		870C3DA92166D72B0012BC20 /* GamePlayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3DA82166D72B0012BC20 /* GamePlayController.swift */; };
+		870C3DAB2166E5500012BC20 /* GamePlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3DAA2166E5500012BC20 /* GamePlayViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		870C3DA22166D6CB0012BC20 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		870C3DA42166D6EF0012BC20 /* StickFigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickFigure.swift; sourceTree = "<group>"; };
 		870C3DA62166D70D0012BC20 /* CardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardController.swift; sourceTree = "<group>"; };
-		870C3DA82166D72B0012BC20 /* GamePlayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayController.swift; sourceTree = "<group>"; };
+		870C3DAA2166E5500012BC20 /* GamePlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePlayViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				870C3DA62166D70D0012BC20 /* CardController.swift */,
-				870C3DA82166D72B0012BC20 /* GamePlayController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -104,6 +103,7 @@
 		870C3DA12166D6A50012BC20 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
+				870C3DAA2166E5500012BC20 /* GamePlayViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -182,7 +182,7 @@
 				870C3DA72166D70D0012BC20 /* CardController.swift in Sources */,
 				870C3DA52166D6EF0012BC20 /* StickFigure.swift in Sources */,
 				870C3D922166D3BE0012BC20 /* DevMtn_StripHiLo.xcdatamodeld in Sources */,
-				870C3DA92166D72B0012BC20 /* GamePlayController.swift in Sources */,
+				870C3DAB2166E5500012BC20 /* GamePlayViewController.swift in Sources */,
 				870C3DA32166D6CB0012BC20 /* Card.swift in Sources */,
 				870C3D8A2166D3BE0012BC20 /* AppDelegate.swift in Sources */,
 			);

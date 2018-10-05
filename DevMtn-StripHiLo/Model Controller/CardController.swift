@@ -45,7 +45,7 @@ class CardController {
     func fetchCardImage(card: Card, completion: @escaping (UIImage?) -> Void) {
         guard let url = URL(string: card.image) else { return }
         URLSession.shared.dataTask(with: url) { (data, _, error) in
-            print("🤠 Are you on the main \(Thread.isMainThread)")
+
             if let error = error {
                 print("Error with fetching image data task \(error) \(error.localizedDescription)")
                 completion(nil); return
