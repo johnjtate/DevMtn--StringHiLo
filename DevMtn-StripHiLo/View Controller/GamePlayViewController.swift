@@ -18,10 +18,10 @@ class GamePlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        presentStartGameMessage()
         startNewGame()
         view.addVerticalGradientLayer(topColor: .green, bottomColor: #colorLiteral(red: 0.2431372549, green: 0.4431372549, blue: 0.1294117647, alpha: 1))
-        
     }
     
     // MARK: - Properties
@@ -125,5 +125,6 @@ class GamePlayViewController: UIViewController {
     }
     
     @IBAction func highButtonTapped(_ sender: UIButton) {
+        
     }
 }
