@@ -10,10 +10,18 @@ import UIKit
 
 class GamePlayViewController: UIViewController {
 
+    @IBOutlet weak var stripMan: UIImageView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var compareCardImage: UIImageView!
+    @IBOutlet weak var drawCardImage: UIImageView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         startNewGame()
+        view.addVerticalGradientLayer(topColor: .green, bottomColor: #colorLiteral(red: 0.2431372549, green: 0.4431372549, blue: 0.1294117647, alpha: 1))
+        
     }
     
     // MARK: - Properties
@@ -35,6 +43,7 @@ class GamePlayViewController: UIViewController {
         round = 1
         playerScore = 0
         endGameFlag = false
+        compareCardImage.image = UIImage(named: "cardback")
         startNewRound()
     }
     
@@ -107,5 +116,14 @@ class GamePlayViewController: UIViewController {
         
         // need to put this in a UIViewController
         present(alertController, animated: true)
+    }
+    
+    
+    @IBAction func lowButtonTapped(_ sender: UIButton) {
+        
+        
+    }
+    
+    @IBAction func highButtonTapped(_ sender: UIButton) {
     }
 }

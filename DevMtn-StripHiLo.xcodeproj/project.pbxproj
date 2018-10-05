@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3868C8802166EBDE0002C68A /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3868C87F2166EBDE0002C68A /* Theme.swift */; };
+		3868C8832166F3F10002C68A /* HiLoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3868C8822166F3F10002C68A /* HiLoButton.swift */; };
 		870C3D8A2166D3BE0012BC20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3D892166D3BE0012BC20 /* AppDelegate.swift */; };
 		870C3D8F2166D3BE0012BC20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 870C3D8D2166D3BE0012BC20 /* Main.storyboard */; };
 		870C3D922166D3BE0012BC20 /* DevMtn_StripHiLo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 870C3D902166D3BE0012BC20 /* DevMtn_StripHiLo.xcdatamodeld */; };
@@ -19,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3868C87F2166EBDE0002C68A /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		3868C8822166F3F10002C68A /* HiLoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiLoButton.swift; sourceTree = "<group>"; };
 		870C3D862166D3BE0012BC20 /* DevMtn-StripHiLo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DevMtn-StripHiLo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		870C3D892166D3BE0012BC20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		870C3D8E2166D3BE0012BC20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -43,6 +47,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3868C87E2166EBCD0002C68A /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				3868C87F2166EBDE0002C68A /* Theme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		3868C8812166F3D60002C68A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3868C8822166F3F10002C68A /* HiLoButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		870C3D7D2166D3BE0012BC20 = {
 			isa = PBXGroup;
 			children = (
@@ -65,6 +85,8 @@
 				870C3D9F2166D69C0012BC20 /* Model */,
 				870C3DA02166D69F0012BC20 /* Model Controller */,
 				870C3DA12166D6A50012BC20 /* View Controller */,
+				3868C87E2166EBCD0002C68A /* Theme */,
+				3868C8812166F3D60002C68A /* Views */,
 				870C3D9E2166D6940012BC20 /* Resources */,
 			);
 			path = "DevMtn-StripHiLo";
@@ -182,9 +204,11 @@
 				870C3DA72166D70D0012BC20 /* CardController.swift in Sources */,
 				870C3DA52166D6EF0012BC20 /* StickFigure.swift in Sources */,
 				870C3D922166D3BE0012BC20 /* DevMtn_StripHiLo.xcdatamodeld in Sources */,
+				3868C8832166F3F10002C68A /* HiLoButton.swift in Sources */,
 				870C3DAB2166E5500012BC20 /* GamePlayViewController.swift in Sources */,
 				870C3DA32166D6CB0012BC20 /* Card.swift in Sources */,
 				870C3D8A2166D3BE0012BC20 /* AppDelegate.swift in Sources */,
+				3868C8802166EBDE0002C68A /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

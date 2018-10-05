@@ -1,10 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JH4-Z7-KBR">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes/>
+    <scenes>
+        <!--Game Play View Controller-->
+        <scene sceneID="hRC-5O-dNX">
+            <objects>
+                <viewController id="JH4-Z7-KBR" customClass="GamePlayViewController" customModule="DevMtn_StripHiLo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yZm-Vy-HE5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image001" translatesAutoresizingMaskIntoConstraints="NO" id="puc-tB-9vf">
+                                <rect key="frame" x="137" y="21" width="100" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="8te-s8-m2u"/>
+                                    <constraint firstAttribute="height" constant="150" id="JdM-YH-ekz"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fjw-CK-waO">
+                                <rect key="frame" x="92.5" y="193.5" width="190" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="190" id="H0h-l5-ctS"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="Jga-nU-Edq"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="LQy-RU-Bu9"/>
+                                    <constraint firstAttribute="height" constant="300" id="Usd-F5-AOB"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E56-jD-Bg8">
+                                <rect key="frame" x="132.5" y="233.5" width="190" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="4nS-38-JIg"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="190" id="5wq-SD-HPK"/>
+                                    <constraint firstAttribute="width" constant="190" id="Cez-HE-flH"/>
+                                    <constraint firstAttribute="height" constant="300" id="gD8-tX-Xuc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wds-hl-l9k">
+                                <rect key="frame" x="288" y="48" width="51" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="51" id="W1D-k5-lHN"/>
+                                    <constraint firstAttribute="height" constant="30" id="yEY-Xc-1Dd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tok-GX-d3h" customClass="HiLoButton" customModule="DevMtn_StripHiLo" customModuleProvider="target">
+                                <rect key="frame" x="45" y="577" width="120" height="40"/>
+                                <color key="backgroundColor" red="0.79607843137254897" green="0.14117647058823529" blue="0.32156862745098036" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="NnE-Nh-wfN"/>
+                                    <constraint firstAttribute="height" constant="40" id="S1f-29-QEo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" red="0.10588235294117647" green="0.29411764705882354" blue="0.67450980392156867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Low"/>
+                                <connections>
+                                    <action selector="lowButtonTapped:" destination="JH4-Z7-KBR" eventType="touchUpInside" id="WV1-3y-ZoP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAB-7T-cAb" customClass="HiLoButton" customModule="DevMtn_StripHiLo" customModuleProvider="target">
+                                <rect key="frame" x="210" y="577" width="120" height="40"/>
+                                <color key="backgroundColor" red="0.25882352941176467" green="0.66274509803921566" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="GsB-B1-CrA"/>
+                                    <constraint firstAttribute="height" constant="40" id="mEG-PU-02s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="tintColor" red="0.1058823529" green="0.29411764709999999" blue="0.67450980390000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="High"/>
+                                <connections>
+                                    <action selector="highButtonTapped:" destination="JH4-Z7-KBR" eventType="touchUpInside" id="Zcu-CI-pvZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fjw-CK-waO" firstAttribute="leading" secondItem="jkG-Rb-dQE" secondAttribute="leading" constant="92.5" id="2nW-f1-Nq2"/>
+                            <constraint firstItem="E56-jD-Bg8" firstAttribute="top" secondItem="puc-tB-9vf" secondAttribute="bottom" constant="62.5" id="3qk-S4-VFo"/>
+                            <constraint firstItem="puc-tB-9vf" firstAttribute="top" secondItem="jkG-Rb-dQE" secondAttribute="top" constant="1" id="4oT-k8-1f9"/>
+                            <constraint firstItem="tok-GX-d3h" firstAttribute="leading" secondItem="jkG-Rb-dQE" secondAttribute="leading" constant="45" id="A02-5O-lYW"/>
+                            <constraint firstItem="RAB-7T-cAb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="tok-GX-d3h" secondAttribute="trailing" constant="8" symbolic="YES" id="BWg-cR-HO1"/>
+                            <constraint firstItem="jkG-Rb-dQE" firstAttribute="trailing" secondItem="wds-hl-l9k" secondAttribute="trailing" constant="36" id="Coe-Xm-7xZ"/>
+                            <constraint firstItem="wds-hl-l9k" firstAttribute="top" secondItem="jkG-Rb-dQE" secondAttribute="top" constant="28" id="DE6-eX-Lja"/>
+                            <constraint firstItem="puc-tB-9vf" firstAttribute="leading" secondItem="jkG-Rb-dQE" secondAttribute="leading" constant="137" id="Ems-Bu-bTc"/>
+                            <constraint firstItem="fjw-CK-waO" firstAttribute="top" secondItem="puc-tB-9vf" secondAttribute="bottom" constant="22.5" id="HVX-Tk-oba"/>
+                            <constraint firstItem="wds-hl-l9k" firstAttribute="leading" secondItem="puc-tB-9vf" secondAttribute="trailing" constant="51" id="IYS-54-OOu"/>
+                            <constraint firstItem="jkG-Rb-dQE" firstAttribute="bottom" secondItem="RAB-7T-cAb" secondAttribute="bottom" constant="50" id="Kf9-uo-jWV"/>
+                            <constraint firstItem="jkG-Rb-dQE" firstAttribute="bottom" secondItem="tok-GX-d3h" secondAttribute="bottom" constant="50" id="Peu-9g-iqE"/>
+                            <constraint firstItem="jkG-Rb-dQE" firstAttribute="trailing" secondItem="RAB-7T-cAb" secondAttribute="trailing" constant="45" id="Uoi-zN-S8d"/>
+                            <constraint firstItem="E56-jD-Bg8" firstAttribute="leading" secondItem="jkG-Rb-dQE" secondAttribute="leading" constant="132.5" id="aKe-dZ-4hv"/>
+                            <constraint firstItem="jkG-Rb-dQE" firstAttribute="trailing" secondItem="E56-jD-Bg8" secondAttribute="trailing" constant="52.5" id="gRr-6D-CBA"/>
+                            <constraint firstItem="jkG-Rb-dQE" firstAttribute="trailing" secondItem="fjw-CK-waO" secondAttribute="trailing" constant="92.5" id="qaN-x4-mjh"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jkG-Rb-dQE"/>
+                    </view>
+                    <connections>
+                        <outlet property="compareCardImage" destination="fjw-CK-waO" id="wyg-yn-bEO"/>
+                        <outlet property="drawCardImage" destination="E56-jD-Bg8" id="zof-AA-YdH"/>
+                        <outlet property="scoreLabel" destination="wds-hl-l9k" id="Rbi-mg-9pi"/>
+                        <outlet property="stripMan" destination="puc-tB-9vf" id="iMf-Eq-SVl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="noZ-Dx-plC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1" y="72"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="image001" width="100" height="150"/>
+    </resources>
 </document>
