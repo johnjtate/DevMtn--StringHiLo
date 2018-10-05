@@ -18,15 +18,17 @@ class GamePlayViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        startNewGame()
         view.addVerticalGradientLayer(topColor: .green, bottomColor: #colorLiteral(red: 0.2431372549, green: 0.4431372549, blue: 0.1294117647, alpha: 1))
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        scoreLabel.text = "Score: \(playerScore)"
+        startNewGame()
     }
     
     // MARK: - Properties
     
-    var round: Int = 0
     var playerScore: Int = 0
     // index 0-4 of stick figure images, with 0 being full clothed and 4 being naked
     var stickFigureImageIndex: Int = 0
@@ -35,21 +37,27 @@ class GamePlayViewController: UIViewController {
     var firstCardValue: String = ""
     var secondCardSuit: String = ""
     var secondCardValue: String = ""
+    // 0 is default, 1 is guess low, 2 is guess high
+    var playerGuessesState: Int = 0
     
     // MARK: - GamePlay Methods
     
+    func updateViews() {
+        
+        
+        
+    }
+    
     func startNewGame() {
         presentStartGameMessage()
-        round = 1
         playerScore = 0
         endGameFlag = false
         compareCardImage.image = UIImage(named: "cardback")
+        playerGuessesState = 0
         startNewRound()
     }
     
     func startNewRound() {
-        // TODO: display some sort of message that the round has started
-        round += 1
         playerScore += 1
         // start with index 0 of indices 0-4 as game progresses and player guesses incorrectly
         stickFigureImageIndex = 0
@@ -66,20 +74,69 @@ class GamePlayViewController: UIViewController {
             self.secondCardSuit = secondCard.suit
             self.secondCardValue = secondCard.value
             
-            // fetch card images
-            // display the first; only display the second once the player chooses higher or lower
+            if self.playerGuessesState == 0 {
+                CardController.shared.fetchCardImage(card: firstCard, completion: { (image) in
+                    DispatchQueue.main.async {
+                        self.compareCardImage.image = image
+                    }
+                })
+            }
+            
+            if self.playerGuessesState != 0 {
+                CardController.shared.fetchCardImage(card: firstCard, completion: { (image) in
+                    DispatchQueue.main.async {
+                        self.compareCardImage.image = image
+                    }
+                })
+                CardController.shared.fetchCardImage(card: firstCard, completion: { (image)  in
+                    DispatchQueue.main.async {
+                        self.drawCardImage.image = image
+                    }
+                })
+            }
         }
     }
     
-    func compareCards() {
+    func compareCards() -> Bool {
         
+        var cardValueDictionary: [String:Int] = [:]
+        cardValueDictionary = ["2" : 2, "3" : 3, "4" : 4, "5" : 5, "6" : 6, "7" : 7, "8" : 8, "9" : 9, "10" : 10, "JACK" : 11, "QUEEN" : 12, "KING" : 13, "ACE" : 14]
         
+        let compareCardOrdinal = cardValueDictionary[firstCardValue]
+        let drawCardOrdinal = cardValueDictionary[secondCardValue]
+        var playerGuessedRight: Bool = false
         
+        guard let drawCard = drawCardOrdinal, let compareCard = compareCardOrdinal else { return false }
         
-        // pass in values of card 1 and card 2
-        // compare card values
-        // if player guess matches card values, score +1 and call startRound()
-        // if player guess does not match card comparison, store stays the same, call incrementStickFigureImage, and call startRound()
+        if playerGuessesState == 1 && drawCard < compareCard {
+            playerGuessedRight = true
+        }
+        if playerGuessesState == 1 && drawCard > compareCard {
+            playerGuessedRight = false
+        }
+        if playerGuessesState == 2 && drawCard < compareCard {
+            playerGuessedRight = false
+        }
+        if playerGuessesState == 2 && drawCard > compareCard {
+            playerGuessedRight = true
+        }
+        // if cards of same value but different suits, treat as if player guessed right
+        if drawCard == compareCard {
+            playerGuessedRight = true
+        }
+        
+        return playerGuessedRight
+    }
+    
+    func evaluateGuess() {
+        if compareCards() {
+            playerScore += 1
+            scoreLabel.text = "Score: \(playerScore)"
+            startNewRound()
+        } else {
+            incrementStickFigureImage()
+            scoreLabel.text = "Score: \(playerScore)"
+        }
     }
     
     func incrementStickFigureImage() {
@@ -101,7 +158,6 @@ class GamePlayViewController: UIViewController {
         let dismissAction = UIAlertAction(title: "Okay!", style: .cancel, handler: nil)
         alertController.addAction(dismissAction)
         
-        // need to put this in a UIViewController
         present(alertController, animated: true)
     }
     
@@ -114,16 +170,19 @@ class GamePlayViewController: UIViewController {
         alertController.addAction(startNewGameAction)
         alertController.addAction(dismissAction)
         
-        // need to put this in a UIViewController
         present(alertController, animated: true)
     }
     
     
     @IBAction func lowButtonTapped(_ sender: UIButton) {
-        
-        
+        playerGuessesState = 1
+        compareCards()
+        evaluateGuess()
     }
     
     @IBAction func highButtonTapped(_ sender: UIButton) {
+        playerGuessesState = 2
+        compareCards()
+        evaluateGuess()
     }
 }
