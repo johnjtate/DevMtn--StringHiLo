@@ -42,58 +42,75 @@ class GamePlayViewController: UIViewController {
     
     // MARK: - GamePlay Methods
     
-    func updateViews() {
-        
-        
-        
+    func updateStickFigure() {
+        if stickFigureImageIndex == 0 {
+            stripMan.image = UIImage(named: "image001")
+        }
+        if stickFigureImageIndex == 1 {
+            stripMan.image = UIImage(named: "image002")
+        }
+        if stickFigureImageIndex == 2 {
+            stripMan.image = UIImage(named: "image003")
+        }
+        if stickFigureImageIndex == 3 {
+            stripMan.image = UIImage(named: "image004")
+        }
+        if stickFigureImageIndex == 4 {
+            stripMan.image = UIImage(named: "image005")
+            endGame()
+        }
     }
     
     func startNewGame() {
         presentStartGameMessage()
         playerScore = 0
+        scoreLabel.text = "Score: \(playerScore)"
         endGameFlag = false
-        compareCardImage.image = UIImage(named: "cardback")
         playerGuessesState = 0
+        stickFigureImageIndex = 0
+        updateStickFigure()
+        drawCardImage.image = UIImage(named: "cardback")
+        drawFirstCard()
         startNewRound()
     }
     
     func startNewRound() {
+        playerGuessesState = 0
         playerScore += 1
-        // start with index 0 of indices 0-4 as game progresses and player guesses incorrectly
-        stickFigureImageIndex = 0
+        drawCardImage.image = UIImage(named: "cardback")
+    }
+    
+    func drawFirstCard() {
         
-        // draw 2 cards
-        CardController.shared.fetchCard(count: 2) { (cards) in
-            guard let cards = cards else { return }
-            let firstCard = cards[0]
-            let secondCard = cards[1]
+        CardController.shared.fetchCard(count: 1) { (cards) in
+            guard let card = cards?.first else { return }
             
             // set suit and value properties
-            self.firstCardSuit = firstCard.suit
-            self.firstCardValue = firstCard.value
-            self.secondCardSuit = secondCard.suit
-            self.secondCardValue = secondCard.value
+            self.firstCardSuit = card.suit
+            self.firstCardValue = card.value
             
-            if self.playerGuessesState == 0 {
-                CardController.shared.fetchCardImage(card: firstCard, completion: { (image) in
-                    DispatchQueue.main.async {
-                        self.compareCardImage.image = image
-                    }
-                })
-            }
+            CardController.shared.fetchCardImage(card: card, completion: { (image) in
+                DispatchQueue.main.async {
+                    self.compareCardImage.image = image
+                }
+            })
+        }
+    }
+    
+    func drawSecondCard() {
+        
+        CardController.shared.fetchCard(count: 1) { (cards) in
+            guard let card = cards?.first else { return }
             
-            if self.playerGuessesState != 0 {
-                CardController.shared.fetchCardImage(card: firstCard, completion: { (image) in
-                    DispatchQueue.main.async {
-                        self.compareCardImage.image = image
-                    }
-                })
-                CardController.shared.fetchCardImage(card: firstCard, completion: { (image)  in
-                    DispatchQueue.main.async {
-                        self.drawCardImage.image = image
-                    }
-                })
-            }
+            // set suit and value properties
+            self.secondCardSuit = card.suit
+            self.secondCardValue = card.value
+            
+            CardController.shared.fetchCardImage(card: card, completion: { (image) in
+                DispatchQueue.main.async {
+                    self.drawCardImage.image = image
+                }
+            })
         }
     }
     
@@ -136,15 +153,15 @@ class GamePlayViewController: UIViewController {
         } else {
             incrementStickFigureImage()
             scoreLabel.text = "Score: \(playerScore)"
+            updateStickFigure()
+            startNewRound()
         }
     }
     
     func incrementStickFigureImage() {
         // increment stick figure image index; once reaches 4, end the game
-        if stickFigureImageIndex <= 2 {
+        if stickFigureImageIndex <= 3 {
             stickFigureImageIndex += 1
-        } else {
-            endGame()
         }
     }
     
@@ -173,15 +190,16 @@ class GamePlayViewController: UIViewController {
         present(alertController, animated: true)
     }
     
-    
     @IBAction func lowButtonTapped(_ sender: UIButton) {
         playerGuessesState = 1
+        drawSecondCard()
         compareCards()
         evaluateGuess()
     }
     
     @IBAction func highButtonTapped(_ sender: UIButton) {
         playerGuessesState = 2
+        drawSecondCard()
         compareCards()
         evaluateGuess()
     }
