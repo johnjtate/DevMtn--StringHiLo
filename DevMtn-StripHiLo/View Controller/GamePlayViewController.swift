@@ -13,6 +13,7 @@ class GamePlayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        startNewGame()
     }
     
     // MARK: - Properties
